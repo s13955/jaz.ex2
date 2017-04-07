@@ -29,6 +29,7 @@ public class AdminPremiumServlet extends ApplicationServlet {
             User user = getUserProvider().findByUsername(username);
             if (null != user) {
                 user.setRole(Role.USER == user.getRole() ? Role.PREMIUM : Role.USER);
+                getUserProvider().update(user);
                 response.sendRedirect("/admin/users");
             } else {
                 throw new ValidationException("User doesn't exist!");

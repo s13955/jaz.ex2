@@ -1,6 +1,7 @@
 package pja.jaz.servlet;
 
 import pja.jaz.model.User;
+import pja.jaz.persistance.HSQLUserRepository;
 import pja.jaz.persistance.InMemoryUserRepository;
 import pja.jaz.persistance.UserRepository;
 
@@ -52,5 +53,6 @@ public class ApplicationServlet extends HttpServlet {
 
     protected UserRepository getUserProvider() {
         return new InMemoryUserRepository();
+        //return new HSQLUserRepository();
     }
 }
