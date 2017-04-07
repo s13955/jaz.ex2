@@ -20,7 +20,7 @@ public class LogoutFilter extends BaseFilter {
             HttpServletRequest httpServletRequest = (HttpServletRequest) request;
             HttpServletResponse httpServletResponse = (HttpServletResponse) response;
             HttpSession session = httpServletRequest.getSession(false);
-            session.removeAttribute("user");
+            session.invalidate();
             httpServletResponse.sendRedirect("/");
             return;
         }

@@ -24,6 +24,10 @@ public class InMemoryUserRepository implements UserRepository {
 
     @Override
     public void add(User user) {
+        if (null == user) {
+            throw new IllegalArgumentException("Null value was given!");
+        }
+
         String key = getPrimaryKey(user);
 
         if (db.containsKey(key)) {
@@ -35,6 +39,10 @@ public class InMemoryUserRepository implements UserRepository {
 
     @Override
     public void delete(User user) {
+        if (null == user) {
+            throw new IllegalArgumentException("Null value was given!");
+        }
+
         db.remove(getPrimaryKey(user));
     }
 
